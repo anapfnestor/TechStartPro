@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.grpSelectOption = new System.Windows.Forms.GroupBox();
+            this.lblCSVFile = new System.Windows.Forms.Label();
+            this.btnChooseFile = new System.Windows.Forms.Button();
+            this.txtChooseFile = new System.Windows.Forms.TextBox();
             this.tsMenu = new System.Windows.Forms.ToolStrip();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lblCSVFile = new System.Windows.Forms.Label();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.grpSelectOption.SuspendLayout();
             this.tsMenu.SuspendLayout();
             this.SuspendLayout();
@@ -42,13 +43,40 @@
             // grpSelectOption
             // 
             this.grpSelectOption.Controls.Add(this.lblCSVFile);
-            this.grpSelectOption.Controls.Add(this.button1);
-            this.grpSelectOption.Controls.Add(this.textBox1);
+            this.grpSelectOption.Controls.Add(this.btnChooseFile);
+            this.grpSelectOption.Controls.Add(this.txtChooseFile);
             this.grpSelectOption.Location = new System.Drawing.Point(7, 24);
             this.grpSelectOption.Name = "grpSelectOption";
             this.grpSelectOption.Size = new System.Drawing.Size(785, 419);
             this.grpSelectOption.TabIndex = 0;
             this.grpSelectOption.TabStop = false;
+            // 
+            // lblCSVFile
+            // 
+            this.lblCSVFile.AutoSize = true;
+            this.lblCSVFile.Location = new System.Drawing.Point(206, 203);
+            this.lblCSVFile.Name = "lblCSVFile";
+            this.lblCSVFile.Size = new System.Drawing.Size(59, 13);
+            this.lblCSVFile.TabIndex = 2;
+            this.lblCSVFile.Text = "Choose file";
+            // 
+            // btnChooseFile
+            // 
+            this.btnChooseFile.Location = new System.Drawing.Point(554, 198);
+            this.btnChooseFile.Name = "btnChooseFile";
+            this.btnChooseFile.Size = new System.Drawing.Size(24, 23);
+            this.btnChooseFile.TabIndex = 1;
+            this.btnChooseFile.Text = "...";
+            this.btnChooseFile.UseVisualStyleBackColor = true;
+            this.btnChooseFile.Click += new System.EventHandler(this.btnChooseFile_Click);
+            // 
+            // txtChooseFile
+            // 
+            this.txtChooseFile.Enabled = false;
+            this.txtChooseFile.Location = new System.Drawing.Point(271, 200);
+            this.txtChooseFile.Name = "txtChooseFile";
+            this.txtChooseFile.Size = new System.Drawing.Size(277, 20);
+            this.txtChooseFile.TabIndex = 0;
             // 
             // tsMenu
             // 
@@ -70,6 +98,7 @@
             this.tsbSave.Size = new System.Drawing.Size(23, 22);
             this.tsbSave.Text = "Save";
             this.tsbSave.ToolTipText = "Save";
+            this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
             // tsbClose
             // 
@@ -80,31 +109,6 @@
             this.tsbClose.Size = new System.Drawing.Size(23, 22);
             this.tsbClose.Text = "Close current window";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(271, 200);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(277, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(554, 198);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // lblCSVFile
-            // 
-            this.lblCSVFile.AutoSize = true;
-            this.lblCSVFile.Location = new System.Drawing.Point(206, 203);
-            this.lblCSVFile.Name = "lblCSVFile";
-            this.lblCSVFile.Size = new System.Drawing.Size(59, 13);
-            this.lblCSVFile.TabIndex = 2;
-            this.lblCSVFile.Text = "Choose file";
             // 
             // formUpdateCategories
             // 
@@ -134,8 +138,9 @@
         private System.Windows.Forms.ToolStripButton tsbSave;
         private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.Label lblCSVFile;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnChooseFile;
+        private System.Windows.Forms.TextBox txtChooseFile;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 

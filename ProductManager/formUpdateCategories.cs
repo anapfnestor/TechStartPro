@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,38 @@ namespace ProductManager
             Menu.Show();
 
             this.Dispose();
+        }
+
+        private void btnChooseFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openCSVFile = new OpenFileDialog();
+
+            DialogResult dr = openCSVFile.ShowDialog();
+
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                if (Path.GetExtension(openCSVFile.FileName) != ".csv")
+                {
+                    MessageBox.Show("Por favor, selecione um arquivo CSV.");
+                    txtChooseFile.Text = "";
+                }
+                else
+                {
+                    txtChooseFile.Text = openCSVFile.FileName;
+                }
+            }
+        }
+
+        private void tsbSave_Click(object sender, EventArgs e)
+        {
+            Category prodCategory = new Category();
+            prodCategory.saveCategoriesDatabase(txtChooseFile.Text);
+
+            MessageBox.Show("Categorias salvas com sucesso.");
+
+
+            tsbClose_Click(sender, e);
+
         }
     }
 }

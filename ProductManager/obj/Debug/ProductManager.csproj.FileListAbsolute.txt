@@ -12,3 +12,13 @@ C:\projects\ProductManager\TechStartPro\ProductManager\obj\Debug\ProductManager.
 C:\projects\ProductManager\TechStartPro\ProductManager\obj\Debug\ProductManager.formMenu.resources
 C:\projects\ProductManager\TechStartPro\ProductManager\obj\Debug\ProductManager.formViewManageProducts.resources
 C:\projects\ProductManager\TechStartPro\ProductManager\obj\Debug\ProductManager.formAddEditProduct.resources
+C:\projects\ProductManager\TechStartPro\ProductManager\bin\Debug\LumenWorks.Framework.IO.dll
+C:\projects\ProductManager\TechStartPro\ProductManager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\projects\ProductManager\TechStartPro\ProductManager\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\projects\ProductManager\TechStartPro\ProductManager\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\projects\ProductManager\TechStartPro\ProductManager\bin\Debug\LumenWorks.Framework.IO.pdb
+C:\projects\ProductManager\TechStartPro\ProductManager\bin\Debug\LumenWorks.Framework.IO.xml
+C:\projects\ProductManager\TechStartPro\ProductManager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\projects\ProductManager\TechStartPro\ProductManager\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\projects\ProductManager\TechStartPro\ProductManager\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\projects\ProductManager\TechStartPro\ProductManager\obj\Debug\ProductManager.csproj.CopyComplete

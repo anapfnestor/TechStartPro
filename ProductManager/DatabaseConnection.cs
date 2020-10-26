@@ -10,24 +10,20 @@ using DataTable = System.Data.DataTable;
 namespace SQLDatabase
 {
 
-    public class connectionString
-    {
-        public static SqlConnection sqlConn = new SqlConnection("server=" + Environment.MachineName + @"\SQLEXPRESS; Database=Product;Integrated Security=SSPI;");
-    }
-
     public class DatabaseConnect
     {
-        
+        public static SqlConnection sqlConn = new SqlConnection("server=" + Environment.MachineName + @"\SQLEXPRESS; Database=Product;Integrated Security=SSPI;");
+
         public static void OpenSqlConnection()
         {
                         
-            connectionString.sqlConn.Open();
+            sqlConn.Open();
 
         }
 
         public static void CloseSqlConnection()
         {
-            connectionString.sqlConn.Close();
+            sqlConn.Close();
         }
 
     }
