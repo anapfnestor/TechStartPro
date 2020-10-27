@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.tsMenu = new System.Windows.Forms.ToolStrip();
-            this.grpViewProduct = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.gridProducts = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
             this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
+            this.grpViewProduct = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gridProducts = new System.Windows.Forms.DataGridView();
             this.tsMenu.SuspendLayout();
             this.grpViewProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
@@ -62,6 +62,49 @@
             this.tsMenu.TabIndex = 5;
             this.tsMenu.Text = " ";
             // 
+            // tsbAdd
+            // 
+            this.tsbAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAdd.Image = global::ProductManager.Properties.Resources.icons8_adicionar_coluna_30;
+            this.tsbAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAdd.Name = "tsbAdd";
+            this.tsbAdd.Size = new System.Drawing.Size(23, 22);
+            this.tsbAdd.Text = "Add new product";
+            this.tsbAdd.ToolTipText = "Add new product";
+            this.tsbAdd.Click += new System.EventHandler(this.tsbAdd_Click);
+            // 
+            // tsbEdit
+            // 
+            this.tsbEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEdit.Image = global::ProductManager.Properties.Resources.icons8_editar_24;
+            this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEdit.Name = "tsbEdit";
+            this.tsbEdit.Size = new System.Drawing.Size(23, 22);
+            this.tsbEdit.Text = "Edit product";
+            this.tsbEdit.ToolTipText = "Edit product";
+            this.tsbEdit.Click += new System.EventHandler(this.tsbEdit_Click);
+            // 
+            // tsbDelete
+            // 
+            this.tsbDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbDelete.Image = global::ProductManager.Properties.Resources.icons8_apagar_para_sempre_24;
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Size = new System.Drawing.Size(23, 22);
+            this.tsbDelete.Text = "Delete product";
+            this.tsbDelete.ToolTipText = "Delete product";
+            // 
+            // tsbClose
+            // 
+            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbClose.Image = global::ProductManager.Properties.Resources.noun_Close_109090;
+            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbClose.Name = "tsbClose";
+            this.tsbClose.Size = new System.Drawing.Size(23, 22);
+            this.tsbClose.Text = "Close current window";
+            this.tsbClose.ToolTipText = "Close current window";
+            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
+            // 
             // grpViewProduct
             // 
             this.grpViewProduct.Controls.Add(this.button1);
@@ -79,6 +122,61 @@
             this.grpViewProduct.Size = new System.Drawing.Size(785, 419);
             this.grpViewProduct.TabIndex = 6;
             this.grpViewProduct.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(537, 39);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(333, 41);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(193, 20);
+            this.textBox4.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(278, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Category";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(62, 41);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(193, 20);
+            this.textBox3.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Value";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(62, 13);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(193, 20);
+            this.textBox2.TabIndex = 6;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(333, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(193, 20);
+            this.textBox1.TabIndex = 5;
             // 
             // label2
             // 
@@ -103,105 +201,10 @@
             this.gridProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridProducts.Location = new System.Drawing.Point(20, 70);
             this.gridProducts.Name = "gridProducts";
+            this.gridProducts.ReadOnly = true;
             this.gridProducts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridProducts.Size = new System.Drawing.Size(745, 330);
             this.gridProducts.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(333, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 20);
-            this.textBox1.TabIndex = 5;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(62, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(193, 20);
-            this.textBox2.TabIndex = 6;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(62, 41);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(193, 20);
-            this.textBox3.TabIndex = 8;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Value";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(333, 41);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(193, 20);
-            this.textBox4.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(278, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Category";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(537, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // tsbAdd
-            // 
-            this.tsbAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbAdd.Image = global::ProductManager.Properties.Resources.icons8_adicionar_coluna_30;
-            this.tsbAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAdd.Name = "tsbAdd";
-            this.tsbAdd.Size = new System.Drawing.Size(23, 22);
-            this.tsbAdd.Text = "Add new product";
-            this.tsbAdd.ToolTipText = "Add new product";
-            // 
-            // tsbEdit
-            // 
-            this.tsbEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbEdit.Image = global::ProductManager.Properties.Resources.icons8_editar_24;
-            this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEdit.Name = "tsbEdit";
-            this.tsbEdit.Size = new System.Drawing.Size(23, 22);
-            this.tsbEdit.Text = "Edit product";
-            this.tsbEdit.ToolTipText = "Edit product";
-            // 
-            // tsbDelete
-            // 
-            this.tsbDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbDelete.Image = global::ProductManager.Properties.Resources.icons8_apagar_para_sempre_24;
-            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(23, 22);
-            this.tsbDelete.Text = "Delete product";
-            this.tsbDelete.ToolTipText = "Delete product";
-            // 
-            // tsbClose
-            // 
-            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbClose.Image = global::ProductManager.Properties.Resources.noun_Close_109090;
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(23, 22);
-            this.tsbClose.Text = "Close current window";
-            this.tsbClose.ToolTipText = "Close current window";
-            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
             // formViewManageProducts
             // 
@@ -217,6 +220,7 @@
             this.Name = "formViewManageProducts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formViewManageProducts";
+            this.Load += new System.EventHandler(this.formViewManageProducts_Load);
             this.tsMenu.ResumeLayout(false);
             this.tsMenu.PerformLayout();
             this.grpViewProduct.ResumeLayout(false);

@@ -92,6 +92,7 @@
       <DependentUpon>mdiProductManager.cs</DependentUpon>
     </Compile>
     <Compile Include="MDISingleton.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formAddEditProduct.resx">

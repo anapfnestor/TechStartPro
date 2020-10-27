@@ -24,19 +24,57 @@ namespace ProductManager
             return csvTable;
         }
 
-        public void saveCategoriesDatabase(string csvPath)
+        public bool saveCategoriesDatabase(string csvPath)
         {
             var Categories = readCSV(csvPath);
 
             DatabaseConnect.OpenSqlConnection();
 
-            SqlCommand sqlQuery = new SqlCommand("spInsertCategor", DatabaseConnect.sqlConn);
+            SqlCommand sqlQuery = new SqlCommand("spInsertCategory", DatabaseConnect.sqlConn);
 
             sqlQuery.CommandType = CommandType.StoredProcedure;
             sqlQuery.Parameters.AddWithValue("@pCategoryNames", Categories);
-            sqlQuery.ExecuteNonQuery();
+            var result = sqlQuery.ExecuteNonQuery();
+            DatabaseConnect.CloseSqlConnection();
+            if (result == -1)
+                return true;
+            else
+                return false;
+        }
+
+        public DataTable readCategories()
+        {
+            var dtCategories = new DataTable();
+
+            DatabaseConnect.OpenSqlConnection();
+
+            var dataAdapter = new SqlDataAdapter("SELECT intCategoryId as Code, strName as Name FROM tbCategory ", DatabaseConnect.sqlConn);
+
+            new SqlCommandBuilder(dataAdapter);
+
+            dataAdapter.Fill(dtCategories);
+
             DatabaseConnect.CloseSqlConnection();
 
+            return dtCategories;
+
+        }
+
+        public DataTable readCategoriesOneProduct(string productCode)
+        {
+            var dtCategories = new DataTable();
+
+            DatabaseConnect.OpenSqlConnection();
+
+            var dataAdapter = new SqlDataAdapter("SELECT intCategoryId as CategoryCode FROM tbProductCategory where intProdId = " + productCode, DatabaseConnect.sqlConn);
+
+            new SqlCommandBuilder(dataAdapter);
+
+            dataAdapter.Fill(dtCategories);
+
+            DatabaseConnect.CloseSqlConnection();
+
+            return dtCategories;
         }
     }
 }

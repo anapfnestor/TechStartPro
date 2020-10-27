@@ -29,64 +29,66 @@
         private void InitializeComponent()
         {
             this.lblCategory = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtValue = new System.Windows.Forms.TextBox();
             this.lblValue = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtDesc = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblProductName = new System.Windows.Forms.Label();
             this.grpViewProduct = new System.Windows.Forms.GroupBox();
+            this.gridCategory = new System.Windows.Forms.DataGridView();
             this.tsMenu = new System.Windows.Forms.ToolStrip();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
-            this.clbCategory = new System.Windows.Forms.CheckedListBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.grpViewProduct.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCategory)).BeginInit();
             this.tsMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(270, 214);
+            this.lblCategory.Location = new System.Drawing.Point(205, 178);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(49, 13);
             this.lblCategory.TabIndex = 9;
             this.lblCategory.Text = "Category";
             // 
-            // textBox3
+            // txtValue
             // 
-            this.textBox3.Location = new System.Drawing.Point(325, 152);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 20);
-            this.textBox3.TabIndex = 8;
+            this.txtValue.Location = new System.Drawing.Point(260, 124);
+            this.txtValue.Name = "txtValue";
+            this.txtValue.Size = new System.Drawing.Size(330, 20);
+            this.txtValue.TabIndex = 8;
             // 
             // lblValue
             // 
             this.lblValue.AutoSize = true;
-            this.lblValue.Location = new System.Drawing.Point(285, 155);
+            this.lblValue.Location = new System.Drawing.Point(220, 127);
             this.lblValue.Name = "lblValue";
             this.lblValue.Size = new System.Drawing.Size(34, 13);
             this.lblValue.TabIndex = 7;
             this.lblValue.Text = "Value";
             // 
-            // textBox2
+            // txtName
             // 
-            this.textBox2.Location = new System.Drawing.Point(325, 124);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtName.Location = new System.Drawing.Point(260, 97);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(330, 20);
+            this.txtName.TabIndex = 6;
             // 
-            // textBox1
+            // txtDesc
             // 
-            this.textBox1.Location = new System.Drawing.Point(325, 181);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtDesc.Location = new System.Drawing.Point(260, 151);
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(330, 20);
+            this.txtDesc.TabIndex = 5;
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(259, 184);
+            this.lblDescription.Location = new System.Drawing.Point(194, 154);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(60, 13);
             this.lblDescription.TabIndex = 4;
@@ -95,7 +97,7 @@
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
-            this.lblProductName.Location = new System.Drawing.Point(284, 127);
+            this.lblProductName.Location = new System.Drawing.Point(220, 100);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(35, 13);
             this.lblProductName.TabIndex = 2;
@@ -103,12 +105,13 @@
             // 
             // grpViewProduct
             // 
-            this.grpViewProduct.Controls.Add(this.clbCategory);
+            this.grpViewProduct.Controls.Add(this.txtID);
+            this.grpViewProduct.Controls.Add(this.gridCategory);
             this.grpViewProduct.Controls.Add(this.lblCategory);
-            this.grpViewProduct.Controls.Add(this.textBox3);
+            this.grpViewProduct.Controls.Add(this.txtValue);
             this.grpViewProduct.Controls.Add(this.lblValue);
-            this.grpViewProduct.Controls.Add(this.textBox2);
-            this.grpViewProduct.Controls.Add(this.textBox1);
+            this.grpViewProduct.Controls.Add(this.txtName);
+            this.grpViewProduct.Controls.Add(this.txtDesc);
             this.grpViewProduct.Controls.Add(this.lblDescription);
             this.grpViewProduct.Controls.Add(this.lblProductName);
             this.grpViewProduct.Location = new System.Drawing.Point(8, 29);
@@ -116,6 +119,14 @@
             this.grpViewProduct.Size = new System.Drawing.Size(785, 417);
             this.grpViewProduct.TabIndex = 7;
             this.grpViewProduct.TabStop = false;
+            // 
+            // gridCategory
+            // 
+            this.gridCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridCategory.Location = new System.Drawing.Point(260, 178);
+            this.gridCategory.Name = "gridCategory";
+            this.gridCategory.Size = new System.Drawing.Size(330, 141);
+            this.gridCategory.TabIndex = 11;
             // 
             // tsMenu
             // 
@@ -137,6 +148,7 @@
             this.tsbSave.Size = new System.Drawing.Size(23, 22);
             this.tsbSave.Text = "Save";
             this.tsbSave.ToolTipText = "Save";
+            this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
             // tsbClose
             // 
@@ -148,13 +160,13 @@
             this.tsbClose.Text = "Close current window";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
-            // clbCategory
+            // txtID
             // 
-            this.clbCategory.FormattingEnabled = true;
-            this.clbCategory.Location = new System.Drawing.Point(325, 214);
-            this.clbCategory.Name = "clbCategory";
-            this.clbCategory.Size = new System.Drawing.Size(200, 79);
-            this.clbCategory.TabIndex = 10;
+            this.txtID.Location = new System.Drawing.Point(260, 71);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(100, 20);
+            this.txtID.TabIndex = 12;
+            this.txtID.Visible = false;
             // 
             // formAddEditProduct
             // 
@@ -170,8 +182,10 @@
             this.Name = "formAddEditProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formAddEditProduct";
+            this.Load += new System.EventHandler(this.formAddEditProduct_Load);
             this.grpViewProduct.ResumeLayout(false);
             this.grpViewProduct.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCategory)).EndInit();
             this.tsMenu.ResumeLayout(false);
             this.tsMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -181,16 +195,17 @@
 
         #endregion
         private System.Windows.Forms.Label lblCategory;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtValue;
         private System.Windows.Forms.Label lblValue;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.GroupBox grpViewProduct;
-        private System.Windows.Forms.CheckedListBox clbCategory;
         private System.Windows.Forms.ToolStrip tsMenu;
         private System.Windows.Forms.ToolStripButton tsbSave;
         private System.Windows.Forms.ToolStripButton tsbClose;
+        private System.Windows.Forms.DataGridView gridCategory;
+        public System.Windows.Forms.TextBox txtID;
     }
 }

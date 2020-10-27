@@ -52,12 +52,20 @@ namespace ProductManager
         private void tsbSave_Click(object sender, EventArgs e)
         {
             Category prodCategory = new Category();
-            prodCategory.saveCategoriesDatabase(txtChooseFile.Text);
+            
+            if (prodCategory.saveCategoriesDatabase(txtChooseFile.Text) == true )
+            {
+                MessageBox.Show("Categorias salvas com sucesso.");
+                tsbClose_Click(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Não foi possivel salvar as categorias do arquivo.");
+            }
+            
 
-            MessageBox.Show("Categorias salvas com sucesso.");
 
-
-            tsbClose_Click(sender, e);
+            
 
         }
     }
