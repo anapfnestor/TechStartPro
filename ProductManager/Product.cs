@@ -16,6 +16,7 @@ namespace ProductManager
         public double value { get; set; }
         public DataTable Categories { get; set; }
         public string id { get; set; }
+        public string categoryName { get; set; }
 
 
         public bool insertProduct()
@@ -120,6 +121,33 @@ namespace ProductManager
                 return true;
             else
                 return false;
+        }
+
+        public DataTable searchProducts()
+        {
+            var dtProducts = new DataTable();
+
+            DatabaseConnect.OpenSqlConnection();
+
+            SqlCommand sqlQuery = new SqlCommand("searchProduct", DatabaseConnect.sqlConn);
+
+            sqlQuery.CommandType = CommandType.StoredProcedure;
+
+            sqlQuery.Parameters.AddWithValue("@pCategoryName", categoryName);
+            sqlQuery.Parameters.AddWithValue("@pStrName", name);
+            sqlQuery.Parameters.AddWithValue("@pStrDescription", description);
+            //sqlQuery.Parameters.AddWithValue("@pDecValue", value);
+
+            var dataAdapter = new SqlDataAdapter();
+
+            dataAdapter.SelectCommand = sqlQuery;
+
+            dataAdapter.Fill(dtProducts);
+
+            DatabaseConnect.CloseSqlConnection();
+
+            return dtProducts;
+
         }
 
     }

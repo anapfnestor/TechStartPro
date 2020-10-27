@@ -34,13 +34,13 @@
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.grpViewProduct = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtCategory = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtValue = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtDesc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gridProducts = new System.Windows.Forms.DataGridView();
@@ -108,13 +108,13 @@
             // 
             // grpViewProduct
             // 
-            this.grpViewProduct.Controls.Add(this.button1);
-            this.grpViewProduct.Controls.Add(this.textBox4);
+            this.grpViewProduct.Controls.Add(this.btnSearch);
+            this.grpViewProduct.Controls.Add(this.txtCategory);
             this.grpViewProduct.Controls.Add(this.label4);
-            this.grpViewProduct.Controls.Add(this.textBox3);
+            this.grpViewProduct.Controls.Add(this.txtValue);
             this.grpViewProduct.Controls.Add(this.label3);
-            this.grpViewProduct.Controls.Add(this.textBox2);
-            this.grpViewProduct.Controls.Add(this.textBox1);
+            this.grpViewProduct.Controls.Add(this.txtName);
+            this.grpViewProduct.Controls.Add(this.txtDesc);
             this.grpViewProduct.Controls.Add(this.label2);
             this.grpViewProduct.Controls.Add(this.label1);
             this.grpViewProduct.Controls.Add(this.gridProducts);
@@ -124,21 +124,22 @@
             this.grpViewProduct.TabIndex = 6;
             this.grpViewProduct.TabStop = false;
             // 
-            // button1
+            // btnSearch
             // 
-            this.button1.Location = new System.Drawing.Point(537, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSearch.Location = new System.Drawing.Point(537, 39);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 11;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // textBox4
+            // txtCategory
             // 
-            this.textBox4.Location = new System.Drawing.Point(333, 41);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(193, 20);
-            this.textBox4.TabIndex = 10;
+            this.txtCategory.Location = new System.Drawing.Point(333, 41);
+            this.txtCategory.Name = "txtCategory";
+            this.txtCategory.Size = new System.Drawing.Size(193, 20);
+            this.txtCategory.TabIndex = 10;
             // 
             // label4
             // 
@@ -149,12 +150,12 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Category";
             // 
-            // textBox3
+            // txtValue
             // 
-            this.textBox3.Location = new System.Drawing.Point(62, 41);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(193, 20);
-            this.textBox3.TabIndex = 8;
+            this.txtValue.Location = new System.Drawing.Point(62, 41);
+            this.txtValue.Name = "txtValue";
+            this.txtValue.Size = new System.Drawing.Size(193, 20);
+            this.txtValue.TabIndex = 8;
             // 
             // label3
             // 
@@ -165,19 +166,19 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Value";
             // 
-            // textBox2
+            // txtName
             // 
-            this.textBox2.Location = new System.Drawing.Point(62, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(193, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtName.Location = new System.Drawing.Point(62, 13);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(193, 20);
+            this.txtName.TabIndex = 6;
             // 
-            // textBox1
+            // txtDesc
             // 
-            this.textBox1.Location = new System.Drawing.Point(333, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtDesc.Location = new System.Drawing.Point(333, 13);
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(193, 20);
+            this.txtDesc.TabIndex = 5;
             // 
             // label2
             // 
@@ -243,12 +244,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView gridProducts;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtValue;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtDesc;
     }
 }

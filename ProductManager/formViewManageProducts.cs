@@ -70,5 +70,52 @@ namespace ProductManager
                 formViewManageProducts_Load(sender, e);
             }            
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if(validateFields())
+            {
+                Product prod = new Product();
+                prod.categoryName = txtCategory.Text;
+                prod.name = txtName.Text;
+                prod.description = txtDesc.Text;
+                gridProducts.DataSource =  prod.searchProducts();
+
+            }
+        }
+
+        private bool validateFields()
+        {
+            if (!string.IsNullOrEmpty(txtName.Text) & !(txtName.Text is string))
+            {
+                MessageBox.Show("Please check the name field.");
+                return false;
+            }
+            if (!string.IsNullOrEmpty(txtDesc.Text) & !(txtDesc.Text is string))
+            {
+                MessageBox.Show("Please check the description field.");
+                return false;
+            }
+
+            if (txtValue.Text.Contains(","))
+            {
+                MessageBox.Show("Please use the format ####.## to fill value field.");
+                return false;
+            }
+
+            if (!string.IsNullOrEmpty(txtValue.Text) & !double.TryParse(txtValue.Text, out double doubleValue))
+            {
+                MessageBox.Show("Please check the value field. It must be numeric.");
+                return false;
+            }
+
+            if (!string.IsNullOrEmpty(txtCategory.Text) & !(txtCategory.Text is string))
+            {
+                MessageBox.Show("Select at least one category.");
+                return false;
+            }
+
+            return true;
+        }
     }
 }

@@ -93,5 +93,18 @@ namespace ProductManagerTest
             
         }
 
+        [TestMethod]
+        public void TestReadProd()
+        {
+            Product prod = new Product();
+
+            prod.name = "Sofa";
+            prod.description = "sala ";
+
+            Assert.IsNotNull(prod.searchProducts());
+
+            
+        }
+
     }
 }

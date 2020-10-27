@@ -188,3 +188,43 @@ as begin
 end
 
 go
+create procedure searchProduct
+	@pStrName varchar(100),
+	@pStrDescription varchar(200),
+	--@pDecValue decimal(19,2),
+	@pCategoryName varchar(100)
+as begin
+
+	select 
+		prod.intProdId as Code, prod.strName as Name ,strDescription as Description, prod.decValue as Value,  cat.strName as Category
+	into 
+		#temp
+	from 
+		tbProduct prod
+		join tbProductCategory pc on pc.intProdId = prod.intProdId
+		join tbCategory cat on cat.intCategoryId = pc.intCategoryId
+
+	SELECT  Code,
+			Name,
+			Description,
+			Value,
+		COALESCE(
+			(SELECT CAST(Category AS VARCHAR(100)) + ';' AS [text()]
+			 FROM #temp AS O
+			 WHERE O.Code  = C.Code
+			 and   O.Name = C.Name
+			 ORDER BY Category
+			 FOR XML PATH(''), TYPE).value('.[1]', 'VARCHAR(MAX)'), '') AS Category
+	FROM #temp AS C
+	WHERE 
+		Name like '%' + @pStrName + '%'
+		and Description like '%' + @pStrDescription + '%'
+		--and cast(Value as varchar(30)) like '%' + cast(@pDecValue as varchar(30)) + '%'
+		and Category like '%' + @pCategoryName + '%'
+	GROUP BY 
+		Code,
+		Name,
+		Description,
+		Value;
+
+end
