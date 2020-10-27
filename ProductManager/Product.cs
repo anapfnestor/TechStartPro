@@ -15,6 +15,7 @@ namespace ProductManager
         public string description { get; set; }
         public double value { get; set; }
         public DataTable Categories { get; set; }
+        public string id { get; set; }
 
 
         public bool insertProduct()
@@ -75,6 +76,50 @@ namespace ProductManager
             DatabaseConnect.CloseSqlConnection();
 
             return dtProduct;
+        }
+
+        public bool editProduct()
+        {
+
+            DatabaseConnect.OpenSqlConnection();
+
+            SqlCommand sqlQuery = new SqlCommand("spUpdateProduct", DatabaseConnect.sqlConn);
+
+            sqlQuery.CommandType = CommandType.StoredProcedure;
+            sqlQuery.Parameters.AddWithValue("@pCategoryId", Categories);
+            sqlQuery.Parameters.AddWithValue("@pStrName", name);
+            sqlQuery.Parameters.AddWithValue("@pStrDescription", description);
+            sqlQuery.Parameters.AddWithValue("@pDecValue", value);
+            sqlQuery.Parameters.AddWithValue("@pIntProdId", id);
+            
+            var result = sqlQuery.ExecuteNonQuery();
+
+            DatabaseConnect.CloseSqlConnection();
+
+            if (result > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool deleteProduct()
+        {
+
+            DatabaseConnect.OpenSqlConnection();
+
+            SqlCommand sqlQuery = new SqlCommand("spDeleteProduct", DatabaseConnect.sqlConn);
+
+            sqlQuery.CommandType = CommandType.StoredProcedure;
+            sqlQuery.Parameters.AddWithValue("@pIntProdId", id);
+
+            var result = sqlQuery.ExecuteNonQuery();
+
+            DatabaseConnect.CloseSqlConnection();
+
+            if (result > 0)
+                return true;
+            else
+                return false;
         }
 
     }

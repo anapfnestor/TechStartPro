@@ -12,9 +12,9 @@ namespace ProductManager
 {
     public partial class formAddEditProduct : Form
     {
-        public static string actionType { get; set; }
+        public string actionType { get; set; }
 
-        public int productID { get; set; }
+        public string productID { get; set; }
 
 
         public formAddEditProduct( int id)
@@ -22,15 +22,10 @@ namespace ProductManager
             InitializeComponent();
             if (id > 0)
             {
-                txtID.Text = id.ToString();
+                productID = id.ToString();
+                actionType = "Edit";
             }
             
-        }
-
-        public void initVariables( string action, int id)
-        {
-            actionType = action;
-            productID = id;
         }
 
         private void tsbClose_Click(object sender, EventArgs e)
@@ -49,58 +44,56 @@ namespace ProductManager
             if (validateFields())
             {
                 DataTable dt = new DataTable();
-                Product newProd = new Product();
-                newProd.name = txtName.Text;
-                newProd.description = txtDesc.Text;
-                newProd.value = Convert.ToDouble( txtValue.Text);
+                Product Prod = new Product();
+                Prod.name = txtName.Text;
+                Prod.description = txtDesc.Text;
+                Prod.value = Convert.ToDouble(txtValue.Text);
 
                 DataColumn column;
                 DataRow row;
-                //DataView view;
-
-                // Create new DataColumn, set DataType, ColumnName and add to DataTable.
                 column = new DataColumn();
                 column.DataType = System.Type.GetType("System.Int32");
                 column.ColumnName = "id";
                 dt.Columns.Add(column);
 
-                //DataGridView
-
-                //dt = (DataTable)gridCategory.DataSource;
-
                 foreach (DataGridViewRow gridrow in gridCategory.Rows)
                 {
-                    if (Convert.ToBoolean(gridrow.Cells["chk"].EditedFormattedValue) )
-                        //Convert.ToBoolean(gridrow.Cells["chk"].Value) == true
+                    if (Convert.ToBoolean(gridrow.Cells["chk"].EditedFormattedValue))
                     {
                         row = dt.NewRow();
                         row["id"] = gridrow.Cells["Code"].Value;
                         dt.Rows.Add(row);
                     }
-                    
-                   
+
                 }
 
-                //foreach ( DataGridViewRow row in gridCategory.Rows)
-                //{
-                //    if ( Convert.ToBoolean( row["chk"]) == true)
-                //    {
-                //        dt.NewRow();
-                //        row["id"] = row["Id"];
-                //    }
-                //}
-              
+                Prod.Categories = dt;
 
-                newProd.Categories = dt;
-
-                if (newProd.insertProduct())
+                if (actionType != "Edit")
                 {
-                    MessageBox.Show("Produto inserido com sucesso.");
+                    
 
-                    tsbClose_Click( sender,  e);
+                    if (Prod.insertProduct())
+                    {
+                        MessageBox.Show("Produto inserido com sucesso.");
+
+                        tsbClose_Click(sender, e);
+                    }
                 }
+                else
+                {
+                    Prod.id = productID;
 
+                    if (Prod.editProduct())
+                    {
+                        MessageBox.Show("Alterações salvas com sucesso.");
+
+                        tsbClose_Click(sender, e);
+                    }
+
+                }
                 
+
             }
         }
 
@@ -143,46 +136,49 @@ namespace ProductManager
             Category categories = new Category();
             var dtCategories = categories.readCategories();
 
-
-            gridCategory.DataSource = dtCategories;
-
             DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
+
             dgvCmb.ValueType = typeof(bool);
             dgvCmb.Name = "chk";
             dgvCmb.HeaderText = "Select";
             dgvCmb.TrueValue = true;
             dgvCmb.FalseValue = false;
-           
+
             gridCategory.Columns.Add(dgvCmb);
 
-            if (txtID.Text!= "")
+            gridCategory.DataSource = dtCategories;
+            if (actionType == "Edit")
             {
+                
+
                 Product editProd = new Product();
-                var dt = editProd.readOneProduct(txtID.Text);
+                var dt = editProd.readOneProduct(productID);
 
                 txtDesc.Text = dt.Rows[0]["strDescription"].ToString();
                 txtName.Text = dt.Rows[0]["strName"].ToString();
                 txtValue.Text = dt.Rows[0]["decValue"].ToString();
-            }
 
-            var categoriesCode = categories.readCategoriesOneProduct(txtID.Text);
+                var categoriesCode = categories.readCategoriesOneProduct(productID);
 
-            foreach (DataGridViewRow row in gridCategory.Rows)
-            {
-                foreach (DataRow id in categoriesCode.Rows)
+                foreach (DataGridViewRow row in gridCategory.Rows)
                 {
-                    DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells["chk"];
-                    if (Convert.ToInt32(row.Cells["Code"].Value) == Convert.ToInt32(id["CategoryCode"]))
-                        chk.Value = chk.TrueValue;
-                    else
-                        chk.Value = chk.FalseValue;
+                    foreach (DataRow id in categoriesCode.Rows)
+                    {
+                        DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells["chk"];
+                        if (Convert.ToInt32(row.Cells["Code"].Value) == Convert.ToInt32(id["CategoryCode"]))
+                        {
+                            chk.Value = chk.TrueValue;
+                            gridCategory.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                        }                            
+                        else
+                            chk.Value = chk.FalseValue;
 
+                    }
 
                 }
-                
             }
-            gridCategory.CommitEdit(DataGridViewDataErrorContexts.Commit);
 
+            
         }
     }
 }

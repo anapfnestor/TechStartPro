@@ -58,5 +58,17 @@ namespace ProductManager
 
             this.Dispose();
         }
+
+        private void tsbDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you to delete the item " + Convert.ToString(gridProducts.Rows[gridProducts.CurrentCell.RowIndex].Cells["Name"].Value) + "?", "Confirm action", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Product item = new Product();
+                item.id = Convert.ToString(gridProducts.Rows[gridProducts.CurrentCell.RowIndex].Cells["Code"].Value);
+                item.deleteProduct();
+                formViewManageProducts_Load(sender, e);
+            }            
+        }
     }
 }

@@ -37,11 +37,6 @@ CREATE TYPE CategoryNameType as TABLE
 
 GO
 
-
-
-
-
-
 CREATE TYPE CategoriesId as TABLE
 (
 	intCategoryId int
@@ -50,7 +45,7 @@ CREATE TYPE CategoriesId as TABLE
 GO
 
 create procedure spInsertCategory
-@pCategoryNames CategoryNameType READONLY
+	@pCategoryNames CategoryNameType READONLY
 as
 begin
 	set nocount on;
@@ -71,10 +66,10 @@ go
 
 
 create procedure spInsertNewProduct
-@pStrName varchar(100) ,
-@pStrDescription varchar(200),
-@pDecValue decimal(19,2),
-@pCategoryId CategoriesId READONLY
+	@pStrName varchar(100) ,
+	@pStrDescription varchar(200),
+	@pDecValue decimal(19,2),
+	@pCategoryId CategoriesId READONLY
 
 as
 begin
@@ -138,3 +133,58 @@ GROUP BY Code,
 		Value;
 
 end
+
+go
+
+create procedure spUpdateProduct
+	@pStrName varchar(100) ,
+	@pStrDescription varchar(200),
+	@pDecValue decimal(19,2),
+	@pIntProdId int,
+	@pCategoryId CategoriesId READONLY
+as begin
+
+	Update
+		tbProduct
+	set 
+		strName = @pStrName,
+		strDescription = @pStrDescription,
+		decValue = @pDecValue
+	where
+		intProdId = @pIntProdId
+
+	delete 
+		tbProductCategory
+	where
+		intProdId = @pIntProdId
+
+	insert into tbProductCategory
+	(
+		intProdId,
+		intCategoryId
+	)
+	select
+		@pIntProdId,
+		intCategoryId
+	from
+		@pCategoryId
+end
+
+go
+
+create procedure spDeleteProduct
+	@pIntProdId int
+as begin
+	delete 
+		tbProductCategory
+	where
+		intProdId = @pIntProdId
+
+	delete
+		tbProduct
+	where
+		intProdId = @pIntProdId
+
+end
+
+go

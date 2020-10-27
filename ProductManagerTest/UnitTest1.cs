@@ -60,5 +60,38 @@ namespace ProductManagerTest
             Assert.IsNotNull(newitem.readProducts());
         }
 
+        [TestMethod]
+        public void TestEditProduct()
+        {
+            Product item = new Product();
+            item.name = "Sofa";
+            item.description = "Sofa para sala de estar";
+            item.value = 1000.00;
+            item.id = "3";
+
+            DataTable table = new DataTable();
+            DataColumn column;
+            DataRow row;
+
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.Int32");
+            column.ColumnName = "id";
+            table.Columns.Add(column);
+
+            row = table.NewRow();
+            row["id"] = 3;
+            table.Rows.Add(row);
+
+            row = table.NewRow();
+            row["id"] = 5;
+            table.Rows.Add(row);
+
+            item.Categories = table;
+
+            Assert.AreEqual(true, item.editProduct());
+
+            
+        }
+
     }
 }

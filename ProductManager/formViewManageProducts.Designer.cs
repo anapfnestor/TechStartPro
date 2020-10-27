@@ -93,6 +93,7 @@
             this.tsbDelete.Size = new System.Drawing.Size(23, 22);
             this.tsbDelete.Text = "Delete product";
             this.tsbDelete.ToolTipText = "Delete product";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // tsbClose
             // 

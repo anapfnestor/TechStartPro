@@ -40,7 +40,6 @@
             this.tsMenu = new System.Windows.Forms.ToolStrip();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.grpViewProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCategory)).BeginInit();
             this.tsMenu.SuspendLayout();
@@ -105,7 +104,6 @@
             // 
             // grpViewProduct
             // 
-            this.grpViewProduct.Controls.Add(this.txtID);
             this.grpViewProduct.Controls.Add(this.gridCategory);
             this.grpViewProduct.Controls.Add(this.lblCategory);
             this.grpViewProduct.Controls.Add(this.txtValue);
@@ -160,14 +158,6 @@
             this.tsbClose.Text = "Close current window";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(260, 71);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 20);
-            this.txtID.TabIndex = 12;
-            this.txtID.Visible = false;
-            // 
             // formAddEditProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +196,5 @@
         private System.Windows.Forms.ToolStripButton tsbSave;
         private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.DataGridView gridCategory;
-        public System.Windows.Forms.TextBox txtID;
     }
 }
